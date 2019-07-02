@@ -1,0 +1,91 @@
+<template>
+    {% import Dynamic from '../../../src/component' %}
+
+    <main>
+        <button :onclick={{::this.toggleGroup}}>Toggle group</button>
+        <p>{{componentsCount}}</p>
+        {% if firstGroup %}
+            <ul>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " first group 1"}}/>
+                </li>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " first group 2"}}/>
+                </li>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " first group 3"}}/>
+                </li>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " first group 4"}}>
+                        {% block 'title' %}
+                            Title for first group
+                        {% endblock %}
+
+                        {% block 'default' %}
+                            Default block content "{{text}}"
+                        {% endblock %}
+                    </Dynamic>
+                </li>
+            </ul>
+        {% else %}
+            <ul>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " second group 1"}}/>
+                </li>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " second group 2"}}/>
+                </li>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " second group 3"}}/>
+                </li>
+                <li>
+                    <Dynamic component={{dynamicComponent}} text={{text + " second group 4"}}>
+                        {% block 'default' %}
+                            Default block content "{{text}}"
+                        {% endblock %}
+                    </Dynamic>
+                </li>
+            </ul>
+        {% endif %}
+        <button :onclick={{::this.toggleComponent}}>Toggle component</button>
+        <button :onclick={{::this.toggleText}}>Toggle text</button>
+    </main>
+</template>
+
+<script>
+    import { options, inject } from 'sham-ui';
+    import Foo from './Foo.sht';
+    import Bar from './Bar.sht';
+
+    export default class extends Template {
+        @inject( 'sham-ui:store' ) store;
+
+        @options firstGroup = true;
+        @options get componentsCount() {
+            return this.store.byId.size;
+        }
+        @options get dynamicComponent() {
+            return Foo;
+        }
+        @options text = 'content';
+
+        toggleGroup() {
+            this.update( {
+                firstGroup: !this.options.firstGroup,
+                componentsCount: this.store.byId.size
+            } );
+        }
+
+        toggleComponent() {
+            this.update( {
+                dynamicComponent: Foo === this.options.dynamicComponent ? Bar : Foo
+            } );
+        }
+
+        toggleText() {
+            this.update( {
+                text: this.options.text === 'content' ? 'CONTENT' : 'content'
+            } );
+        }
+    }
+</script>

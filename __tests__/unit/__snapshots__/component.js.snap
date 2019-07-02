@@ -1,0 +1,120 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`blocks blocks 1`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "text": "Extra text",
+    "types": Array [],
+  },
+  "html": "
+<h3> Title for component
+  <!--title-->
+</h3>
+<div>Foo component content. Extra text</div>
+<!--DynamicComponent-->
+",
+}
+`;
+
+exports[`blocks blocks 2`] = `
+Object {
+  "Constructor": "dummy",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "text": "Extra text",
+    "types": Array [],
+  },
+  "html": "
+<div>Component without block</div>
+<!--DynamicComponent-->
+",
+}
+`;
+
+exports[`component 1`] = `
+Object {
+  "Constructor": "DynamicComponent",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "types": Array [],
+  },
+  "html": "<div>Foo component content</div>",
+}
+`;
+
+exports[`component options 1`] = `
+Object {
+  "Constructor": "DynamicComponent",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "text": "Extra text",
+    "types": Array [],
+  },
+  "html": "<div>Foo component content. Extra text</div>",
+}
+`;
+
+exports[`component options 2`] = `
+Object {
+  "Constructor": "DynamicComponent",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "text": "Another extra text",
+    "types": Array [],
+  },
+  "html": "<div>Foo component content. Another extra text</div>",
+}
+`;
+
+exports[`empty options 1`] = `
+Object {
+  "Constructor": "DynamicComponent",
+  "Options": Object {
+    "ID": "component",
+    "component": undefined,
+    "containerSelector": "body",
+    "types": Array [],
+  },
+  "html": "",
+}
+`;
+
+exports[`update component 1`] = `
+Object {
+  "Constructor": "DynamicComponent",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "text": "Extra text",
+    "types": Array [],
+  },
+  "html": "<div>Foo component content. Extra text</div>",
+}
+`;
+
+exports[`update component 2`] = `
+Object {
+  "Constructor": "DynamicComponent",
+  "Options": Object {
+    "ID": "component",
+    "component": [Function],
+    "containerSelector": "body",
+    "text": "Extra text",
+    "types": Array [],
+  },
+  "html": "<div>Bar component content. Extra text</div>",
+}
+`;
