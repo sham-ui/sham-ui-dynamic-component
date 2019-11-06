@@ -6,9 +6,7 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
     "text": "Extra text",
-    "types": Array [],
   },
   "html": "
 <h3> Title for component
@@ -26,9 +24,7 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
     "text": "Extra text",
-    "types": Array [],
   },
   "html": "
 <div>Component without block</div>
@@ -43,8 +39,6 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
-    "types": Array [],
   },
   "html": "<div>Foo component content</div>",
 }
@@ -56,9 +50,7 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
     "text": "Extra text",
-    "types": Array [],
   },
   "html": "<div>Foo component content. Extra text</div>",
 }
@@ -70,9 +62,7 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
     "text": "Another extra text",
-    "types": Array [],
   },
   "html": "<div>Foo component content. Another extra text</div>",
 }
@@ -84,8 +74,6 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": undefined,
-    "containerSelector": "body",
-    "types": Array [],
   },
   "html": "",
 }
@@ -97,9 +85,7 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
     "text": "Extra text",
-    "types": Array [],
   },
   "html": "<div>Foo component content. Extra text</div>",
 }
@@ -111,9 +97,7 @@ Object {
   "Options": Object {
     "ID": "component",
     "component": [Function],
-    "containerSelector": "body",
     "text": "Extra text",
-    "types": Array [],
   },
   "html": "<div>Bar component content. Extra text</div>",
 }

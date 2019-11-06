@@ -53,11 +53,11 @@
 </template>
 
 <script>
-    import { options, inject } from 'sham-ui';
+    import { options, inject } from 'sham-ui-macro/babel.macro';
     import Foo from './Foo.sht';
     import Bar from './Bar.sht';
 
-    export default class extends Template {
+    class App extends Template {
         @inject( 'sham-ui:store' ) store;
 
         @options firstGroup = true;
@@ -88,4 +88,6 @@
             } );
         }
     }
+
+    export default App;
 </script>

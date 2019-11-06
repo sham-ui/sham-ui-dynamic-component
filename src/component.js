@@ -1,4 +1,5 @@
-import { Component, options } from 'sham-ui';
+import { Component } from 'sham-ui';
+import { options } from 'sham-ui-macro/babel.macro';
 
 export default class DynamicComponent extends Component {
     /** @type {Function|null} */
@@ -7,7 +8,6 @@ export default class DynamicComponent extends Component {
     constructor() {
         super( ...arguments );
         this.ref = null;
-        this.blocks = null;
         this.lastRenderedComponent = null;
     }
 
@@ -28,9 +28,9 @@ export default class DynamicComponent extends Component {
             this,
             component,
             options,
-            this.owner
+            this.owner,
+            this.blocks
         );
-        this.blocks = this.ref.blocks || {};
         this.lastRenderedComponent = component;
     }
 
@@ -39,8 +39,7 @@ export default class DynamicComponent extends Component {
         // Remove all nested views.
         let i = this.nested.length;
         while ( i-- ) {
-            this.UI.render.unregister( this.nested[ i ].ID );
+            this.nested[ i ].remove();
         }
-        this.blocks = null;
     }
 }

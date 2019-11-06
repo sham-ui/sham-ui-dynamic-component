@@ -4,7 +4,7 @@ import * as directives from 'sham-ui-directives';
 export default function() {
     new App( {
         ID: 'app',
-        containerSelector: 'body',
+        container: document.querySelector( 'body' ),
         directives
     } );
 }
