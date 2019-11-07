@@ -1,8 +1,31 @@
 import { Component } from 'sham-ui';
 import { options } from 'sham-ui-macro/babel.macro';
 
-export default class DynamicComponent extends Component {
-    /** @type {Function|null} */
+/**
+ * Component-wrapper for dynamic insert components
+ * @example
+ * {% Dynamic from 'sham-ui-dynamic-component' %}
+ *
+ * <!-- Can use as in-place inserted component -->
+ * <Dynamic
+ *  component={{Foo}}
+ *  componentOption={{optionValue}}/>
+ *
+ * <!-- Can use as block component -->
+ * <Dynamic
+ *   component={{Foo}}
+ *   componentOption={{optionValue}}
+ * >
+ *   {% block 'default' %}
+ *     Blocks also supported
+ *   {% endblock %}
+ * <Dynamic/>
+ */
+export default class Dynamic extends Component {
+    /**
+     * Option. Component for insert
+     * @type {Function|undefined}
+     */
     @options component = undefined;
 
     constructor() {

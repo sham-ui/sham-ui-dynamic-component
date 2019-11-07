@@ -1,20 +1,20 @@
 import renderer, { compile } from 'sham-ui-test-helpers';
-import DynamicComponent from '../../src/component';
+import Dynamic from '../../src/component';
 
 it( 'empty options', () => {
-    const meta = renderer( DynamicComponent, {} );
+    const meta = renderer( Dynamic, {} );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
 it( 'component', () => {
-    const meta = renderer( DynamicComponent, {
+    const meta = renderer( Dynamic, {
         component: compile`<div>Foo component content</div>`
     } );
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
 it( 'component options', () => {
-    const meta = renderer( DynamicComponent, {
+    const meta = renderer( Dynamic, {
         component: compile`<div>Foo component content. {{text}}</div>`,
         text: 'Extra text'
     } );
@@ -26,7 +26,7 @@ it( 'component options', () => {
 } );
 
 it( 'update component', () => {
-    const meta = renderer( DynamicComponent, {
+    const meta = renderer( Dynamic, {
         component: compile`<div>Foo component content. {{text}}</div>`,
         text: 'Extra text'
     } );
@@ -38,36 +38,33 @@ it( 'update component', () => {
     expect( meta.toJSON() ).toMatchSnapshot();
 } );
 
-describe( 'blocks', () => {
-    beforeEach( () => window.DynamicComponent = DynamicComponent );
-    afterEach( () => delete window.DynamicComponent );
+it( 'blocks', () => {
+    const meta = renderer(
+        compile( {
+            DynamicComponent: Dynamic
+        } )`
+        <DynamicComponent 
+            component={{component}}  
+            text={{text}}
+        >
+            {% block 'title' %}
+                Title for component
+            {% endblock %}
+        </DynamicComponent>
+    `,
+        {
+            component: compile`
+                <h3>{% defblock 'title' %}</h3>
+                <div>Foo component content. {{text}}</div>
+            `,
+            text: 'Extra text'
+        }
+    );
+    expect( meta.toJSON() ).toMatchSnapshot();
 
-    it( 'blocks', () => {
-        const meta = renderer(
-            compile`
-            <DynamicComponent 
-                component={{component}}  
-                text={{text}}
-            >
-                {% block 'title' %}
-                    Title for component
-                {% endblock %}
-            </DynamicComponent>
-        `,
-            {
-                component: compile`
-                    <h3>{% defblock 'title' %}</h3>
-                    <div>Foo component content. {{text}}</div>
-                `,
-                text: 'Extra text'
-            }
-        );
-        expect( meta.toJSON() ).toMatchSnapshot();
-
-        meta.component.update( {
-            component: compile`<div>Component without block</div>`
-        } );
-        expect( meta.toJSON() ).toMatchSnapshot();
+    meta.component.update( {
+        component: compile`<div>Component without block</div>`
     } );
+    expect( meta.toJSON() ).toMatchSnapshot();
 } );
 

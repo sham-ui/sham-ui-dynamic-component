@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`blocks blocks 1`] = `
+exports[`blocks 1`] = `
 Object {
   "Constructor": "dummy",
   "Options": Object {
@@ -18,7 +18,7 @@ Object {
 }
 `;
 
-exports[`blocks blocks 2`] = `
+exports[`blocks 2`] = `
 Object {
   "Constructor": "dummy",
   "Options": Object {
@@ -35,7 +35,7 @@ Object {
 
 exports[`component 1`] = `
 Object {
-  "Constructor": "DynamicComponent",
+  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -46,7 +46,7 @@ Object {
 
 exports[`component options 1`] = `
 Object {
-  "Constructor": "DynamicComponent",
+  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -58,7 +58,7 @@ Object {
 
 exports[`component options 2`] = `
 Object {
-  "Constructor": "DynamicComponent",
+  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -70,7 +70,7 @@ Object {
 
 exports[`empty options 1`] = `
 Object {
-  "Constructor": "DynamicComponent",
+  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": undefined,
@@ -81,7 +81,7 @@ Object {
 
 exports[`update component 1`] = `
 Object {
-  "Constructor": "DynamicComponent",
+  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -93,7 +93,7 @@ Object {
 
 exports[`update component 2`] = `
 Object {
-  "Constructor": "DynamicComponent",
+  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
