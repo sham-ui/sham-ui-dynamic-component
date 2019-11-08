@@ -3,7 +3,7 @@
   "description": "Dynamic component for sham-ui",
   "author": "Eugeny Burnashov <shamcode@gmail.com>",
   "main": "index.js",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
     "start": "node demo-app/server.js",
