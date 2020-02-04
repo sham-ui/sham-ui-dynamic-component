@@ -1,3 +1,7 @@
+## 1.0.1
+* Update dependencies
+* Add `.travis.yml` to `.npmignore`
+
 ## 1.0.0
 * Update dependencies
 * Add travis-ci
