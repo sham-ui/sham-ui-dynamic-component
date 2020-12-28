@@ -32,16 +32,14 @@ export default class Dynamic extends Component {
         super( ...arguments );
         this.ref = null;
         this.lastRenderedComponent = null;
+        this.spots = {
+            component( component ) {
+                this._insertComponent( component );
+            }
+        };
     }
 
-    updateSpots( data ) {
-        if ( data.component !== undefined ) {
-            this._insertComponent( data );
-        }
-    }
-
-    _insertComponent( options ) {
-        const { component } = options;
+    _insertComponent( component ) {
         if ( null !== this.lastRenderedComponent && this.lastRenderedComponent !== component ) {
             this._clearContainer();
         }
@@ -50,7 +48,7 @@ export default class Dynamic extends Component {
             this.container,
             this,
             component,
-            options,
+            this.__data__,
             this.owner,
             this.blocks
         );

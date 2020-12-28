@@ -4,7 +4,7 @@ I'am foo {{text}}
     {% defblock 'title' %}
 </p>
 
-<div style="background: yellow">
+<div class="yellow">
     {% defblock %}
 </div>
 
