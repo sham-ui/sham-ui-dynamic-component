@@ -1,5 +1,5 @@
 I'am bar {{text}}
 
-<div class="red">
+<div \style="background: red">
     {% defblock %}
 </div>
