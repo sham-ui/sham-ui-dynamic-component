@@ -10,10 +10,10 @@ Object {
   },
   "html": "
 <h3> Title for component
-  <!--title-->
+  <!--0-->
 </h3>
 <div>Foo component content. Extra text</div>
-<!--DynamicComponent-->
+<!--0-->
 ",
 }
 `;
@@ -28,7 +28,7 @@ Object {
   },
   "html": "
 <div>Component without block</div>
-<!--DynamicComponent-->
+<!--0-->
 ",
 }
 `;

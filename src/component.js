@@ -1,4 +1,4 @@
-import { Component } from 'sham-ui';
+import { Component, insert } from 'sham-ui';
 import { options } from 'sham-ui-macro/babel.macro';
 
 /**
@@ -28,22 +28,23 @@ export default class Dynamic extends Component {
      */
     @options component = undefined;
 
-    constructor() {
-        super( ...arguments );
+    constructor( options ) {
+        super( options );
         this.ref = null;
         this.lastRenderedComponent = null;
-        this.spots = {
-            component( component ) {
-                this._insertComponent( component );
-            }
-        };
+        this.spots = [
+            [
+                'component',
+                ::this._insertComponent
+            ]
+        ];
     }
 
     _insertComponent( component ) {
         if ( null !== this.lastRenderedComponent && this.lastRenderedComponent !== component ) {
             this._clearContainer();
         }
-        window.__UI__.insert(
+        insert(
             this,
             this.container,
             this,
