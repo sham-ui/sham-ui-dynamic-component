@@ -30,8 +30,6 @@ yarn add sham-ui-dynamic-component
 
 #### Dynamic
 
-**Extends Component**
-
 Component-wrapper for dynamic insert components
 
 ##### Examples
@@ -57,6 +55,6 @@ Component-wrapper for dynamic insert components
 
 ##### component
 
-Option. Component for insert
+Option. Wrapped component
 
-Type: ([Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function) \| [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))
+Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)

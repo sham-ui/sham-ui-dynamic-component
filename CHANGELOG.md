@@ -1,3 +1,7 @@
+## 2.0.0-alpha.1
+* Update dependencies
+* Change project structure to sham-ui 5.x
+
 ## 2.0.0-alpha.0
 * Update dependencies
 * Update for sham-ui 5.x

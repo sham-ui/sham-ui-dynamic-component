@@ -2,8 +2,7 @@
     {% import Dynamic from '../../../src/component' %}
 
     <main>
-        <button :onclick={{::this.toggleGroup}}>Toggle group</button>
-        <p>{{componentsCount}}</p>
+        <button :onclick={{this[ ref( 'toggleGroup' ) ]}}>Toggle group</button>
         {% if firstGroup %}
             <ul>
                 <li>
@@ -40,54 +39,43 @@
                 </li>
                 <li>
                     <Dynamic component={{dynamicComponent}} text={{text + " second group 4"}}>
-                        {% block 'default' %}
-                            Default block content "{{text}}"
-                        {% endblock %}
+                        Default block content "{{text}}"
                     </Dynamic>
                 </li>
             </ul>
         {% endif %}
-        <button :onclick={{::this.toggleComponent}}>Toggle component</button>
-        <button :onclick={{::this.toggleText}}>Toggle text</button>
+        <button :onclick={{this[ ref( 'toggleComponent' ) ]}}>Toggle component</button>
+        <button :onclick={{this[ ref( 'toggleText' ) ]}}>Toggle text</button>
     </main>
 </template>
 
 <script>
-    import { options, inject } from 'sham-ui-macro/babel.macro';
     import Foo from './Foo.sht';
     import Bar from './Bar.sht';
 
-    class App extends Template {
-        @inject( 'sham-ui:store' ) store;
+    function App( options, update ) {
+        const firstGroup = ref();
+        const dynamicComponent = ref();
+        const text = ref();
 
-        @options firstGroup = true;
-        @options get componentsCount() {
-            return this.store.byId.size;
-        }
-        @options get dynamicComponent() {
-            return Foo;
-        }
-        @options text = 'content';
+        const state = options( {
+            [ firstGroup ]: true,
+            [ dynamicComponent ]: Foo,
+            [ text ]: 'content'
+        } );
 
-        toggleGroup() {
-            this.update( {
-                firstGroup: !this.options.firstGroup,
-                componentsCount: this.store.byId.size
-            } );
-        }
+        this[ ref( 'toggleGroup' ) ] = () => update( {
+            [ firstGroup ]: !state[ firstGroup ]
+        } );
 
-        toggleComponent() {
-            this.update( {
-                dynamicComponent: Foo === this.options.dynamicComponent ? Bar : Foo
-            } );
-        }
+        this[ ref( 'toggleComponent' ) ] = () => update( {
+            [ dynamicComponent ]: Foo === state[ dynamicComponent ] ? Bar : Foo
+        } );
 
-        toggleText() {
-            this.update( {
-                text: this.options.text === 'content' ? 'CONTENT' : 'content'
-            } );
-        }
+        this[ ref( 'toggleText' ) ] = () => update( {
+            [ text ]: state[ text ] === 'content' ? 'CONTENT' : 'content'
+        } );
     }
 
-    export default App;
+    export default Component( Template, App );
 </script>

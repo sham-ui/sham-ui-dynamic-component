@@ -1,8 +1,9 @@
+import { ref } from 'sham-ui-macro/babel.macro';
 import { Component, insert } from 'sham-ui';
-import { options } from 'sham-ui-macro/babel.macro';
 
 /**
  * Component-wrapper for dynamic insert components
+ * @class Dynamic
  * @example
  * {% Dynamic from 'sham-ui-dynamic-component' %}
  *
@@ -21,47 +22,44 @@ import { options } from 'sham-ui-macro/babel.macro';
  *   {% endblock %}
  * <Dynamic/>
  */
-export default class Dynamic extends Component {
-    /**
-     * Option. Component for insert
-     * @type {Function|undefined}
-     */
-    @options component = undefined;
+export default Component( function( options ) {
+    const component = ref();
+    options( {
 
-    constructor( options ) {
-        super( options );
-        this.ref = null;
-        this.lastRenderedComponent = null;
-        this.spots = [
-            [
-                'component',
-                ::this._insertComponent
-            ]
-        ];
-    }
+        /**
+         * Option. Wrapped component
+         * @type {Function}
+         * @memberof Dynamic
+         */
+        [ component ]: null
+    } );
 
-    _insertComponent( component ) {
-        if ( null !== this.lastRenderedComponent && this.lastRenderedComponent !== component ) {
-            this._clearContainer();
+    let lastRenderedComponent = null;
+
+    this.ref = null;
+    this.spots = [ [
+        component,
+        wrappedComponent => {
+            if ( lastRenderedComponent !== wrappedComponent ) {
+
+                // Remove all nested views.
+                let i = this.nested.length;
+                while ( i-- ) {
+                    this.nested[ i ].remove();
+                }
+            }
+            if ( wrappedComponent ) {
+                insert(
+                    this,
+                    this.container,
+                    this,
+                    wrappedComponent,
+                    this.__data__,
+                    this.owner,
+                    this.blocks
+                );
+            }
+            lastRenderedComponent = wrappedComponent;
         }
-        insert(
-            this,
-            this.container,
-            this,
-            component,
-            this.__data__,
-            this.owner,
-            this.blocks
-        );
-        this.lastRenderedComponent = component;
-    }
-
-    _clearContainer() {
-
-        // Remove all nested views.
-        let i = this.nested.length;
-        while ( i-- ) {
-            this.nested[ i ].remove();
-        }
-    }
-}
+    ] ];
+} );

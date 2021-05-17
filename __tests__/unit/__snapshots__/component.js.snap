@@ -2,7 +2,6 @@
 
 exports[`blocks 1`] = `
 Object {
-  "Constructor": "dummy",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -20,7 +19,6 @@ Object {
 
 exports[`blocks 2`] = `
 Object {
-  "Constructor": "dummy",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -35,7 +33,6 @@ Object {
 
 exports[`component 1`] = `
 Object {
-  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -46,7 +43,6 @@ Object {
 
 exports[`component options 1`] = `
 Object {
-  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -58,7 +54,6 @@ Object {
 
 exports[`component options 2`] = `
 Object {
-  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -70,10 +65,9 @@ Object {
 
 exports[`empty options 1`] = `
 Object {
-  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
-    "component": undefined,
+    "component": null,
   },
   "html": "",
 }
@@ -81,7 +75,6 @@ Object {
 
 exports[`update component 1`] = `
 Object {
-  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
@@ -93,7 +86,6 @@ Object {
 
 exports[`update component 2`] = `
 Object {
-  "Constructor": "Dynamic",
   "Options": Object {
     "ID": "component",
     "component": [Function],
