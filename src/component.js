@@ -1,4 +1,4 @@
-import ref from 'sham-ui-macro/ref.macro';
+import { ref } from 'sham-ui-macro/ref.macro';
 import { Component, insert } from 'sham-ui';
 
 /**

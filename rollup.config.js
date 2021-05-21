@@ -5,7 +5,7 @@ export default {
     input: './src/component.js',
     external: [
         'sham-ui',
-        'sham-ui-macro/babel.macro',
+        'sham-ui-macro/ref.macro',
         /@babel\/runtime/,
         /@corejs/
     ],
