@@ -2,7 +2,7 @@
     {% import Dynamic from '../../../src/component' %}
 
     <main>
-        <button :onclick={{this[ ref( 'toggleGroup' ) ]}}>Toggle group</button>
+        <button :onclick={{this$.toggleGroup}}>Toggle group</button>
         {% if firstGroup %}
             <ul>
                 <li>
@@ -44,8 +44,8 @@
                 </li>
             </ul>
         {% endif %}
-        <button :onclick={{this[ ref( 'toggleComponent' ) ]}}>Toggle component</button>
-        <button :onclick={{this[ ref( 'toggleText' ) ]}}>Toggle text</button>
+        <button :onclick={{this$.toggleComponent}}>Toggle component</button>
+        <button :onclick={{this$.toggleText}}>Toggle text</button>
     </main>
 </template>
 
@@ -54,9 +54,9 @@
     import Bar from './Bar.sht';
 
     function App( options, update ) {
-        const firstGroup = ref();
-        const dynamicComponent = ref();
-        const text = ref();
+        const firstGroup = $();
+        const dynamicComponent = $();
+        const text = $();
 
         const state = options( {
             [ firstGroup ]: true,
@@ -64,15 +64,15 @@
             [ text ]: 'content'
         } );
 
-        this[ ref( 'toggleGroup' ) ] = () => update( {
+        this$.toggleGroup = () => update( {
             [ firstGroup ]: !state[ firstGroup ]
         } );
 
-        this[ ref( 'toggleComponent' ) ] = () => update( {
+        this$.toggleComponent = () => update( {
             [ dynamicComponent ]: Foo === state[ dynamicComponent ] ? Bar : Foo
         } );
 
-        this[ ref( 'toggleText' ) ] = () => update( {
+        this$.toggleText = () => update( {
             [ text ]: state[ text ] === 'content' ? 'CONTENT' : 'content'
         } );
     }

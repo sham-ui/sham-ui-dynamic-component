@@ -1,4 +1,4 @@
-import { ref } from 'sham-ui-macro/ref.macro';
+import { $ } from 'sham-ui-macro/ref.macro';
 import { Component, insert } from 'sham-ui';
 
 /**
@@ -23,7 +23,7 @@ import { Component, insert } from 'sham-ui';
  * <Dynamic/>
  */
 export default Component( function( options ) {
-    const component = ref();
+    const component = $();
     options( {
 
         /**
