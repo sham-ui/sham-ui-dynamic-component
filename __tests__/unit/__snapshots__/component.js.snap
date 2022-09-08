@@ -3,7 +3,6 @@
 exports[`blocks 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
     "text": "Extra text",
   },
@@ -20,7 +19,6 @@ Object {
 exports[`blocks 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
     "text": "Extra text",
   },
@@ -34,7 +32,6 @@ Object {
 exports[`component 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
   },
   "html": "<div>Foo component content</div>",
@@ -44,7 +41,6 @@ Object {
 exports[`component options 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
     "text": "Extra text",
   },
@@ -55,7 +51,6 @@ Object {
 exports[`component options 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
     "text": "Another extra text",
   },
@@ -66,7 +61,6 @@ Object {
 exports[`empty options 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": null,
   },
   "html": "",
@@ -76,7 +70,6 @@ Object {
 exports[`update component 1`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
     "text": "Extra text",
   },
@@ -87,7 +80,6 @@ Object {
 exports[`update component 2`] = `
 Object {
   "Options": Object {
-    "ID": "component",
     "component": [Function],
     "text": "Extra text",
   },

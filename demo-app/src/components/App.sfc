@@ -53,7 +53,7 @@
     import Foo from './Foo.sht';
     import Bar from './Bar.sht';
 
-    function App( options, update ) {
+    function App( options ) {
         const firstGroup = $();
         const dynamicComponent = $();
         const text = $();
@@ -64,17 +64,19 @@
             [ text ]: 'content'
         } );
 
-        this$.toggleGroup = () => update( {
-            [ firstGroup ]: !state[ firstGroup ]
-        } );
+        this$.toggleGroup = () => state[ firstGroup ] = !state[ firstGroup ];
 
-        this$.toggleComponent = () => update( {
-            [ dynamicComponent ]: Foo === state[ dynamicComponent ] ? Bar : Foo
-        } );
+        this$.toggleComponent = () => {
+            state[ dynamicComponent ] = Foo === state[ dynamicComponent ] ?
+                Bar :
+                Foo
+            ;
+        };
 
-        this$.toggleText = () => update( {
-            [ text ]: state[ text ] === 'content' ? 'CONTENT' : 'content'
-        } );
+        this$.toggleText = () => state[ text ] = state[ text ] === 'content' ?
+            'CONTENT' :
+            'content'
+        ;
     }
 
     export default Component( Template, App );

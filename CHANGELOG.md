@@ -1,3 +1,7 @@
+## 3.0.0-alpha.1
+* Update dependencies
+* Update for sham-ui 6.x
+
 ## 2.0.0
 * Update dependencies
 

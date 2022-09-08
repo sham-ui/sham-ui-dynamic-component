@@ -1,5 +1,5 @@
 import { $ } from 'sham-ui-macro/ref.macro';
-import { Component, insert } from 'sham-ui';
+import { Component, insert, createChildContext } from 'sham-ui';
 
 /**
  * Component-wrapper for dynamic insert components
@@ -24,6 +24,7 @@ import { Component, insert } from 'sham-ui';
  */
 export default Component( function( options ) {
     const component = $();
+
     options( {
 
         /**
@@ -34,10 +35,13 @@ export default Component( function( options ) {
         [ component ]: null
     } );
 
-    let lastRenderedComponent = null;
+    const ctx = createChildContext(
+        this,
+        this.ctx.container
+    );
 
-    this.ref = null;
-    this.spots = [ [
+    let lastRenderedComponent = null;
+    this.addSpots( [
         component,
         wrappedComponent => {
             if ( lastRenderedComponent !== wrappedComponent ) {
@@ -49,17 +53,9 @@ export default Component( function( options ) {
                 }
             }
             if ( wrappedComponent ) {
-                insert(
-                    this,
-                    this.container,
-                    this,
-                    wrappedComponent,
-                    this.__data__,
-                    this.owner,
-                    this.blocks
-                );
+                insert( ctx, wrappedComponent, this.__data__ );
             }
             lastRenderedComponent = wrappedComponent;
         }
-    ] ];
+    ] );
 } );
