@@ -51,6 +51,7 @@ export default Component( function( options ) {
                 while ( i-- ) {
                     this.nested[ i ].remove();
                 }
+                ctx.resetOwner();
             }
             if ( wrappedComponent ) {
                 insert( ctx, wrappedComponent, this.__data__ );
