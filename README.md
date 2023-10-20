@@ -47,9 +47,9 @@ Component-wrapper for dynamic insert components
   component={{Foo}}
   componentOption={{optionValue}}
 >
-  {% block 'default' %}
+  {% content %}
     Blocks also supported
-  {% endblock %}
+  {% end content %}
 <Dynamic/>
 ```
 

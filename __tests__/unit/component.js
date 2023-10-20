@@ -47,14 +47,14 @@ it( 'blocks', () => {
             component={{component}}  
             text={{text}}
         >
-            {% block 'title' %}
+            {% title %}
                 Title for component
-            {% endblock %}
+            {% end title %}
         </DynamicComponent>
     `,
         {
             component: compile`
-                <h3>{% defblock 'title' %}</h3>
+                <h3>{% defblock title %}</h3>
                 <div>Foo component content. {{text}}</div>
             `,
             text: 'Extra text'

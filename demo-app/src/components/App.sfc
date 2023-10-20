@@ -16,13 +16,13 @@
                 </li>
                 <li>
                     <Dynamic component={{dynamicComponent}} text={{text + " first group 4"}}>
-                        {% block 'title' %}
+                        {% title %}
                             Title for first group
-                        {% endblock %}
+                        {% end title %}
 
-                        {% block 'default' %}
+                        {% default %}
                             Default block content "{{text}}"
-                        {% endblock %}
+                        {% end default %}
                     </Dynamic>
                 </li>
             </ul>

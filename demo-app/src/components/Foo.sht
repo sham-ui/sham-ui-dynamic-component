@@ -1,7 +1,7 @@
 I'am foo {{text}}
 
 <p>
-    {% defblock 'title' %}
+    {% defblock title %}
 </p>
 
 <div \style="background: yellow">

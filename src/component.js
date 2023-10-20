@@ -17,9 +17,9 @@ import { Component, insert, createChildContext } from 'sham-ui';
  *   component={{Foo}}
  *   componentOption={{optionValue}}
  * >
- *   {% block 'default' %}
+ *   {% content %}
  *     Blocks also supported
- *   {% endblock %}
+ *   {% end content %}
  * <Dynamic/>
  */
 export default Component( function( options ) {
